@@ -1,5 +1,5 @@
 # SQLite databases
-database.db
+data/database.sqlite
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
