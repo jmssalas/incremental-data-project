@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  app:
+    env_file:
+      - .env
+    image: python:3.11
+    container_name: "${MODULE_NAME}_app"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    tty: true
+    depends_on:
+      - neo4j
+
+  neo4j:
+    image: neo4j:5.12-community
+    container_name: "${MODULE_NAME}_neo4j"
+    ports:
+      - "${HOST_NEO4J_UI_PORT}:${NEO4J_UI_PORT}"
+      - "${HOST_NEO4J_DB_PORT}:${NEO4J_DB_PORT}"
+    environment:
+      - NEO4J_AUTH=${NEO4J_DB_USER}/${NEO4J_DB_PASS}
