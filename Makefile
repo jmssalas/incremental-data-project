@@ -13,6 +13,9 @@ run: # Run docker containers in the background
 	docker exec ${MODULE_NAME}_app pip install -r requirements.txt
 	docker exec ${MODULE_NAME}_app python src/main.py
 
+run-airbyte: # Run Airbyte platform
+	./airbyte/run-ab-platform.sh
+
 enter: # Enter into app container
 	docker exec -it ${MODULE_NAME}_app bash
 
