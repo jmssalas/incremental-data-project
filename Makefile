@@ -22,9 +22,6 @@ enter: # Enter into app container
 down: # Down docker containers
 	docker-compose down
 
-test: run # Run tests on the container
-	docker exec -it ${MODULE_NAME}_app npm test
-
 delete-branches: # Delete all git branches except 'master'
 	git branch | grep -v "master" | xargs git branch -D
 
